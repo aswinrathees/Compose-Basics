@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ComposeBasics">
         <activity
+            android:name=".samples.LazyColumnActivity"
+            android:exported="false" />
+        <activity
             android:name=".samples.ButtonAndBoxActivity"
             android:exported="false" />
         <activity
