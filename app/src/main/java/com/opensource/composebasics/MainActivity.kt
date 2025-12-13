@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
@@ -16,8 +17,10 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.opensource.composebasics.samples.ButtonAndBoxActivity
 import com.opensource.composebasics.samples.LazyColumnActivity
+import com.opensource.composebasics.samples.ScrollableColumnActivity
 import com.opensource.composebasics.ui.theme.ComposeBasicsTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,23 +31,28 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ComposeBasicsTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { padding ->
+                Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
                     Column(
                         modifier = Modifier
                             .background(color = Color.White)
                             .fillMaxSize()
-                            .padding(padding),
+                            .padding(10.dp),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Button(onClick = {
                             launchActivity(ButtonAndBoxActivity::class.java)
-                        }) { Text("Box & Button") }
+                        }, modifier = Modifier.fillMaxWidth()) { Text("Box & Button") }
+
+
+                        Button(onClick = {
+                            launchActivity(ScrollableColumnActivity::class.java)
+                        }, modifier = Modifier.fillMaxWidth()) { Text("Scrollable Column") }
 
 
                         Button(onClick = {
                             launchActivity(LazyColumnActivity::class.java)
-                        }) { Text("Scrollable Column") }
+                        }, modifier = Modifier.fillMaxWidth()) { Text("Lazy Column") }
                     }
                 }
             }
