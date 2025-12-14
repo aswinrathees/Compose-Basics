@@ -1,4 +1,4 @@
-package com.opensource.composebasics.samples
+package com.opensource.composebasics.views
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

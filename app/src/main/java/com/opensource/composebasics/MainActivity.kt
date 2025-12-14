@@ -18,9 +18,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.opensource.composebasics.samples.ButtonAndBoxActivity
-import com.opensource.composebasics.samples.LazyColumnActivity
-import com.opensource.composebasics.samples.ScrollableColumnActivity
+import com.opensource.composebasics.views.ButtonAndBoxActivity
+import com.opensource.composebasics.views.ComposeStateHoistingActivity
+import com.opensource.composebasics.views.ComposeStatefulActivity
+import com.opensource.composebasics.views.LazyColumnActivity
+import com.opensource.composebasics.views.ScrollableColumnActivity
 import com.opensource.composebasics.ui.theme.ComposeBasicsTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,7 +30,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
-
         setContent {
             ComposeBasicsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
@@ -44,15 +45,21 @@ class MainActivity : ComponentActivity() {
                             launchActivity(ButtonAndBoxActivity::class.java)
                         }, modifier = Modifier.fillMaxWidth()) { Text("Box & Button") }
 
-
                         Button(onClick = {
                             launchActivity(ScrollableColumnActivity::class.java)
                         }, modifier = Modifier.fillMaxWidth()) { Text("Scrollable Column") }
 
-
                         Button(onClick = {
                             launchActivity(LazyColumnActivity::class.java)
                         }, modifier = Modifier.fillMaxWidth()) { Text("Lazy Column") }
+
+                        Button(onClick = {
+                            launchActivity(ComposeStatefulActivity::class.java)
+                        }, modifier = Modifier.fillMaxWidth()) { Text("Compose State - Stateful") }
+
+                        Button(onClick = {
+                            launchActivity(ComposeStateHoistingActivity::class.java)
+                        }, modifier = Modifier.fillMaxWidth()) { Text("Compose State - State Hoisting") }
                     }
                 }
             }
